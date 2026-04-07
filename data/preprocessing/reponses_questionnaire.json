@@ -1,0 +1,22 @@
+{
+  "Q1": {
+    "question": "Comment évaluez-vous votre niveau en Python ?",
+    "reponse": "C. Avancé"
+  },
+  "Q2": {
+    "question": "Quelle est votre méthode de travail préférée ?",
+    "reponse": "A. En solo"
+  },
+  "Q3": {
+    "question": "Quel environnement de développement utilisez-vous ?",
+    "reponse": "A. VS Code"
+  },
+  "Q4": {
+    "question": "À quelle fréquence utilisez-vous des outils d'IA dans votre travail ?",
+    "reponse": "C. Tous les jours"
+  },
+  "Q5": {
+    "question": "Quelle est votre priorité principale dans un projet ?",
+    "reponse": "C. L'expérience utilisateur"
+  }
+}
