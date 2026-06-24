@@ -160,7 +160,11 @@ def save_response(row: dict) -> None:
     - Google Sheets si les secrets sont configurés (production Streamlit Cloud)
     - CSV local sinon (développement)
     """
-    if "gcp_service_account" in st.secrets:
+    try:
+        has_gcp = "gcp_service_account" in st.secrets
+    except Exception:
+        has_gcp = False
+    if has_gcp:
         try:
             _save_to_sheets(row)
             log.info("Réponse enregistrée dans Google Sheets.")
