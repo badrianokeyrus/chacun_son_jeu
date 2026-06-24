@@ -27,7 +27,7 @@ questionnaire-joueurs/
 uv sync
 
 # Lancer l'app
-uv run streamlit run app/app_forms.py
+uv run streamlit run app/main.py
 ```
 
 ## Développement
