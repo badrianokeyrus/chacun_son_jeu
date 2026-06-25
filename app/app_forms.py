@@ -100,7 +100,7 @@ with st.container(border=True):
         niche_badge = " 🔍" if g.niche else ""
         btn_label = f"{g.emoji} {g.name}{niche_badge}\n{labels[state]}"
         with cols[idx % 4]:
-            if st.button(btn_label, key=f"game_{g.id}", use_container_width=True):
+            if st.button(btn_label, key=f"game_{g.id}", width='stretch'):
                 st.session_state.game_states[g.id] = (state + 1) % 3
                 st.rerun()
 
@@ -152,7 +152,7 @@ for sec_num in range(1, 5):
 st.markdown("---")
 col_btn, col_reset = st.columns([3, 1])
 with col_btn:
-    if st.button("🎯 Voir mon profil motivationnel", type="primary", use_container_width=True):
+    if st.button("🎯 Voir mon profil motivationnel", type="primary", width='stretch'):
         st.session_state.info = {
             "age":       age,
             "freq":      freq     if freq     != "— Choisir —" else "",
@@ -164,7 +164,7 @@ with col_btn:
         st.session_state.show_results = True
         st.rerun()
 with col_reset:
-    if st.button("🔄 Réinitialiser", use_container_width=True):
+    if st.button("🔄 Réinitialiser", width='stretch'):
         for key in list(st.session_state.keys()):
             del st.session_state[key]
         st.rerun()

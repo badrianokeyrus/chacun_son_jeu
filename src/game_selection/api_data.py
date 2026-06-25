@@ -101,13 +101,14 @@ def detail_jeu(jeu_id: int):
 @app.get("/stats")
 def statistiques():
     con = get_con()
-    stats = con.execute("""
+    duree_expr = "TRY_CAST(SPLIT_PART(duree, ' ', 1) AS DOUBLE)"
+    stats = con.execute(f"""
         SELECT
-            COUNT(*)                        AS total_jeux,
-            ROUND(AVG(note_moyenne), 2)     AS note_moyenne_collection,
-            MAX(note_moyenne)               AS meilleure_note,
-            MIN(note_moyenne)               AS moins_bonne_note,
-            # ROUND(AVG(duree), 0)            AS duree_moyenne_min
+            COUNT(*)                                    AS total_jeux,
+            ROUND(AVG(note_moyenne), 2)                 AS note_moyenne_collection,
+            MAX(note_moyenne)                           AS meilleure_note,
+            MIN(note_moyenne)                           AS moins_bonne_note,
+            COALESCE(ROUND(AVG({duree_expr}), 0), 0)   AS duree_moyenne_min
         FROM jeux
     """).fetchone()
     con.close()
